@@ -13,11 +13,23 @@ namespace DevIO.Data.Mappings
 
             builder.Property(x => x.Nome)
                 .IsRequired()
-                .HasColumnType("varchar(200)");
+                .HasColumnType("varchar(200)")
+                .HasColumnName("Nome");
 
             builder.Property(x => x.Documento)
                     .IsRequired()
-                    .HasColumnType("varchar(14)");
+                    .HasColumnType("varchar(14)")
+                    .HasColumnName("Documento");
+
+            builder.Property(x => x.TipoFornecedor)
+                    .IsRequired()
+                    .HasColumnType("int")
+                    .HasColumnName("TipoFornecedor");
+            
+            builder.Property(x => x.Ativo)
+                    .IsRequired()
+                    .HasColumnType("bit")
+                    .HasColumnName("Ativo");
 
             // 1 : 1 => Fornecedor : Endereco
             builder.HasOne(f => f.Endereco)
